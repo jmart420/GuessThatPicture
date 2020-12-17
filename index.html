@@ -1,0 +1,110 @@
+<html>
+<head>
+  <title>Guess That Picture</title>
+  <style>
+  </style>
+
+  <script>
+  var ans1 = "";
+  var ans2 = "";
+  var ans3 = "";
+  var ans4 = "";
+  var ans5 = "";
+
+  var score = 0;
+  var count = 1;
+  function quiz()
+  {
+
+    if (count == 1)
+    {
+      //document get text
+     ans1 = document.getElementById("answer").value;
+     document.getElementById("output").innerHTML = "<img src = Kangaroo.jpg>";
+
+     count = count + 1;
+     if (ans1 == "Koala")
+     {
+       score = score + 1
+     }
+    }
+    else if (count == 2)
+    {
+      ans2 = document.getElementById("answer").value;
+     document.getElementById("output").innerHTML = "<img src = dingo.jpg>";
+     count = count + 1;
+     if (ans2 == "kangaroo")
+     {
+       score = score + 1
+     }
+    }
+    else if (count == 3)
+    {
+     var ans3 = document.getElementById("answer").value;
+     document.getElementById("output").innerHTML = "<img src = bat.jpg>";
+     count = count + 1;
+     if (ans3 == "dingo")
+     {
+       score = score + 1
+     }
+    }
+    else if (count == 4)
+    {
+     var ans4 = document.getElementById("answer").value;
+     document.getElementById("output").innerHTML = "<img src = lemur.jpg>";
+     count = count + 1;
+     if (ans4 == "bat")
+     {
+       score = score + 1
+     }
+    }
+    else if (count == 5)
+    {
+       ans5 = document.getElementById("answer").value;
+        if (ans5 == "lemur")
+        {
+          score = score + 1;
+        }
+      check();
+    }
+
+  }
+
+  function check()
+   {
+
+     var table = "RESULTS <br>";
+     table = table + "The first answer was koala you answered " + ans1 + "<br>";
+     table = table + "The first answer was kangaroo you answered " + ans2 + "<br>";
+     table = table + "The first answer was dingo you answered " + ans3 + "<br>";
+     table = table + "The first answer was bat you answered " + ans4 + "<br>";
+     table = table + "The first answer was lemur you answered " + ans5 + "<br>";
+    document.getElementById("output").innerHTML = table;
+     document.getElementById("reset").style.visiblity = "visible";
+    }
+
+function reset()
+{
+  table = "";
+  score = 0;
+  count = 1;
+  document.getElementById("output").innerHTML = "<img src = koala.jpg>"
+  document.getElementById("reset").style.visibility = "hidden"
+}
+// table = table + "The 1rst answer was this you answered" + ans1 + "<br>";
+
+  </script>
+</head>
+
+  <body>
+    <h2> Guess That Picture Game </h2>
+    <input type = "text" id = "answer">
+    <input type = "button" value = "ENTER" onclick = "quiz()">
+    <br><hr>
+    <span id = "output"><img src = "koala.jpg" id = "picture"></span>
+     <br>
+     <input type = "button" value = "Play again" onclick = "reset()">
+  </body>
+
+
+</html>
